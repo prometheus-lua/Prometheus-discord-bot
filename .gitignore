@@ -1,0 +1,6 @@
+# Node related stuff
+node_modules
+.vscode
+
+# Do not share Bot token
+.env
