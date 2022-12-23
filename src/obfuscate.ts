@@ -10,7 +10,7 @@ import logger from './logger';
 export default function obfuscate(filename: string, preset: string): Promise<tmp.FileResult> {
     return new Promise((resolve, reject) => {
         const outFile = tmp.fileSync();
-        const child = spawn('./bin/luajit.exe', ['./lua/cli.lua', '--LuaU', '--preset', preset, filename, '--out', outFile.name]);
+        const child = spawn('lua', ['./lua/cli.lua', '--LuaU', '--preset', preset, filename, '--out', outFile.name]);
         child.stderr.on('data', (data) => {
             logger.error(data.toString());
             reject(data.toString());
