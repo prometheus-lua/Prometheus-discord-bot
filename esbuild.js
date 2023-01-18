@@ -7,5 +7,6 @@ require('esbuild').build({
   outfile: 'index.js',
   minify: true,
   plugins: [nodeExternalsPlugin()],
-  external: ['fs', 'child_process']
+  external: ['fs', 'child_process'],
+  minifyWhitespace: false,
 }).catch(() => process.exit(1));
